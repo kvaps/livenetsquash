@@ -1,5 +1,9 @@
 # Livenetsquash dracut module
 
+This module allows to boot live linux system from squashed image that downloaded from http-server.
+
+I advise you to use [darkhttpd](https://github.com/ryanmjacobs/darkhttpd) as simple http server for store your squased image.
+
 ## Installation
 ```
 cd /tmp
