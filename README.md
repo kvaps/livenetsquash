@@ -2,9 +2,8 @@
 
 This module allows to boot live linux system from squashed image that downloaded from http-server.
 
-I advise you to use [darkhttpd](https://github.com/ryanmjacobs/darkhttpd) as simple http server for store your squased image.
+## Module installation
 
-## Installation
 ```
 cd /tmp
 curl -OL https://github.com/kvaps/livenetsquash/archive/master.tar.gz
@@ -18,6 +17,21 @@ add modules:
 ```
 dracutmodules+="network base livenetsquash overlay-root"
 ```
+
+generate initrd image:
+```
+dracut -f /boot/initramfs -v
+```
+
+## Squashed image
+
+Build squashed image, example:
+
+```
+mksquashfs <rootfs_path> rootfs.squash -noappend
+```
+
+I advise you to use [darkhttpd](https://github.com/ryanmjacobs/darkhttpd) as simple http server for store your squased image.
 
 ## Bootloader configuration
 
