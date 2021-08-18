@@ -24,7 +24,10 @@ umount $NEWROOT
 
 # Create tmpfs
 mkdir /cow
-mount -n -t tmpfs -o mode=0755 tmpfs /cow
+if [[ ! -z $(getarg overlay_size=) ]] ; then
+    RAMDISK_OPT=",size=$(getarg overlay_size=)"
+fi
+mount -n -t tmpfs -o mode=0755$RAMDISK_OPT tmpfs /cow
 mkdir /cow/work /cow/rw
 
 # Merge both to new Filesystem
